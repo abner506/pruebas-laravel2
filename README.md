@@ -64,3 +64,7 @@ s pruebas-laravel2
 pruebas-laravel2
 s Actualizar
 Actualizar
+S Actualizar
+Actualizar
+S actualizar
+actualizar
