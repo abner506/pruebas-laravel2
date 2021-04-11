@@ -24,3 +24,9 @@ Route::resource('/Lista',ListaController::class);
 
 Route::delete('Lista/{matricula}', 'ListaController@destroy')
 ->name('Lista.destroy');
+
+Route::get('Lista/{estudiante}/edit', 'ListaController@edit')->name('Lista.edit');
+
+Route::resource('Lista', 'App\Http\Controllers\ListaController', ['except' => ['create', 'edit']]);
+
+Route::post('/edit/lista/{id}','ListaController@update');

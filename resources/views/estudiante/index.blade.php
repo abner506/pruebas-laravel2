@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <? use App\Http\Controllers\LController; ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,8 @@
             <h4>Lista de estudiantes</h4>
             <div class="row">
                 <div class="col-xl-12">
+                    <table class="table">
+                        <thead class="thead-dark">
                     <form action="">
                         <div class="form-row">
                             <div class="col-sm-4 my-1">
@@ -33,6 +36,7 @@
                                     <th> Nombre</th>
                                     <th> Dirección </th>
                                     <th> Acciones </th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,7 +45,8 @@
                                     <td>{{$estudiantes->Matricula}}</td>
                                     <td>{{$estudiantes->Nombre}}</td>
                                     <td>{{$estudiantes->Direccion}}</td>
-                                    <td><button type="submit" onclick="return confirm ('¿Deseas Borrar?');">Eliminar</button></td>
+                                    <td> <a href="{{ route ('Lista.edit',$estudiantes->Matricula) }}" class="btn btn-primary btn-sm btn btn-warning btn-sm">Actualizar</a></td>
+                                    <td><button class="btn btn-danger btn-delete delete-product" value="{{$estudiantes->Matricula}}">Delete</button></td>
                                     <form method="POST" action="{{ url("Lista/{$estudiantes->Matricula}") }}">
                                          @csrf
                                          @method('DELETE')
@@ -56,4 +61,3 @@
         </div>
     </body>
 </html>
-
